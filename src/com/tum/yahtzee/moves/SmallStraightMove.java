@@ -22,7 +22,7 @@ public class SmallStraightMove implements IBaseMove {
 			default: return false;
 			}
 		}
-		return values == 15 || values == 30 || values == 60 || values == 31 || values == 63;
+		return values == 15 || values == 30 || values == 60 || values == 31 || values == 62;
 	}
 	
 	public static int calculatePoints(List<Cube> cubes)
