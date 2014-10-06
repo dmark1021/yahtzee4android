@@ -13,7 +13,9 @@ With the application 'Yahtzee' you are able to play the game on your android sma
 Import the project into eclipse and compile it to get an .apk file, which you can install on an android phone.
 
 ### Information ###
+
 The graphics for the cubes have been made by someone else and made freely available on the internet. They may be released under another licence.
+The app icon is made by Freepik from flaticon.com and is licensed under CC BY 3.0.
 
 ### Git ###
 

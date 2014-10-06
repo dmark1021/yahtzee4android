@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 public class GameActivity extends Activity {
 	
-	private TextView playerText;
 	private TextView possibilityText;
 	private TextView pointsText;
 	
@@ -40,7 +39,6 @@ public class GameActivity extends Activity {
     	super.onCreate(savedInstanceState);
     	setContentView(R.layout.game);
     	
-    	playerText = (TextView)findViewById(R.id.player_nr_header);
     	possibilityText = (TextView)findViewById(R.id.possibilityText);
     	pointsText = (TextView)findViewById(R.id.pointsText);
     	
@@ -88,7 +86,7 @@ public class GameActivity extends Activity {
     private void update()
     {
     	Player player = GameController.get().getCurrentPlayer();
-    	playerText.setText(player.getName());
+    	setTitle(player.getName());
     	
     	
     	String[] moves = player.getMoves().toArray(new String[]{});

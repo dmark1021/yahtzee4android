@@ -6,7 +6,6 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent">
 		<LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-			<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/game_title" android:layout_marginTop="7pt" android:layout_marginLeft="7pt" android:layout_marginBottom="7pt" android:textSize="14pt"></TextView>
 			<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/player_title"></TextView>
 			<EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/player_amount" android:inputType="number">
 				<requestFocus></requestFocus>

@@ -22,9 +22,6 @@ public class YahtzeeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        TextView titleView = (TextView)findViewById(R.id.game_title);
-        titleView.setText("Yahtzee");
-        
         TextView playerTitleView = (TextView)findViewById(R.id.player_title);
         playerTitleView.setText("Amount of Players:");
         
