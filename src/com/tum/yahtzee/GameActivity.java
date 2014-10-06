@@ -70,7 +70,7 @@ public class GameActivity extends Activity {
 			public void onClick(View arg0) {
 				if(!GameController.get().getCurrentPlayer().shake())
 				{
-					MessageService.showMessage(GameActivity.this, "You can only shake 2 times. (2 because first time is used to generate the random cubes.)");
+					MessageService.showMessage(GameActivity.this, "Impossible", "You can only shake 2 times. (2 because first time is used to generate the random cubes.)");
 				}
 				updateCubes();
 			}
@@ -136,7 +136,7 @@ public class GameActivity extends Activity {
     	
     	//validate input
     	if (!player.isSelectedMovePossible()) {
-    		MessageService.showMessage(GameActivity.this, "The selected move isn't possible!");
+    		MessageService.showMessage(GameActivity.this, "Impossible", "The selected move isn't possible!");
     		return;
     	}
     	
@@ -159,7 +159,7 @@ public class GameActivity extends Activity {
     		builder.show();
     	} else {
     		if (!player.anyMovePossible()) {
-    			MessageService.showMessage(GameActivity.this, "No move possible. Continuing with next user or finishing game now if this was the last round.");
+    			MessageService.showMessage(GameActivity.this, "No move possible", "Continuing with next user or finishing game now if this was the last round.");
     		} else {
     			player.doSelectedMove();
     		}
@@ -169,7 +169,7 @@ public class GameActivity extends Activity {
     		//update
     		update();
     	} else {
-    		MessageService.showMessage(GameActivity.this, "Game finished! "+GameController.get().winner().getName()+" won the game.", new MethodPointer() {
+    		MessageService.showMessage(GameActivity.this, "Game finished!", GameController.get().winner().getName()+" won the game.", new MethodPointer() {
     			@Override
     			public void execute(){
     				closeActivity();

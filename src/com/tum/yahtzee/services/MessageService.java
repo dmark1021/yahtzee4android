@@ -5,32 +5,36 @@ import android.content.Context;
 import android.content.DialogInterface;
 
 public class MessageService {
-	public static void showMessage(Context context, String message)
-	{
-		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-		alertDialog.setCancelable(false);
-		alertDialog.setMessage(message);
-		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-			
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			}
-		});
+	public static void showMessage(Context context, String title, String message) {
+		AlertDialog.Builder alertDialog_build = new AlertDialog.Builder(context);
+		alertDialog_build.setCancelable(false);
+		alertDialog_build.setTitle(title);
+		alertDialog_build.setMessage(message);
+		alertDialog_build.setPositiveButton("OK",
+		   new DialogInterface.OnClickListener() {
+			 
+		      public void onClick(DialogInterface dialog, int which) {
+		    	  dialog.dismiss();
+		    }
+		   });
+		AlertDialog alertDialog = alertDialog_build.create();
 		alertDialog.show();
 	}
 	
-	public static void showMessage(Context context, String message, final MethodPointer methodPointer)
-	{
-		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-		alertDialog.setCancelable(false);
-		alertDialog.setMessage(message);
-		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-			
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				methodPointer.execute();
-			}
-		});
+	public static void showMessage(Context context, String title, String message, final MethodPointer methodPointer) {
+		AlertDialog.Builder alertDialog_build = new AlertDialog.Builder(context);
+		alertDialog_build.setCancelable(false);
+		alertDialog_build.setTitle(title);
+		alertDialog_build.setMessage(message);
+		alertDialog_build.setPositiveButton("OK",
+		   new DialogInterface.OnClickListener() {
+			 
+		      public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+					methodPointer.execute();
+		    }
+		   });
+		AlertDialog alertDialog = alertDialog_build.create();
 		alertDialog.show();
 	}
 }

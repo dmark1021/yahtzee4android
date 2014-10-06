@@ -49,7 +49,7 @@ public class YahtzeeActivity extends Activity {
     	String sRounds = roundsText.getText().toString();
     	
     	if (sPlayers == null || sPlayers.isEmpty() || new Integer(sPlayers) == 0 || sRounds == null || sRounds.isEmpty() || new Integer(sRounds) == 0) {
-    		MessageService.showMessage(YahtzeeActivity.this, "Amount of Rounds and Players must not be zero.");
+    		MessageService.showMessage(YahtzeeActivity.this, "Impossible", "Amount of Rounds and Players must not be zero.");
     	} else {
 	    	GameController.get().newGame(new Integer(sPlayers), new Integer(sRounds));
 	    	
