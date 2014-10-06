@@ -6,4 +6,7 @@
     <string name="AdditionalPoints">Additional Points: </string>
     <string name="SaveMove">Save Move &amp; Continue</string>
     <string name="SelectMove">Select a Move:</string>
+    <string name="amount_players">Players:</string>
+    <string name="amount_rounds">Rounds:</string>
+    <string name="start">Start</string>
 </resources>
