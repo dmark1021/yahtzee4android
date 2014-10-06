@@ -39,14 +39,14 @@ public class GameActivity extends Activity {
     	super.onCreate(savedInstanceState);
     	setContentView(R.layout.game);
     	
-    	possibilityText = (TextView)findViewById(R.id.possibilityText);
-    	pointsText = (TextView)findViewById(R.id.pointsText);
+    	possibilityText = (TextView)findViewById(R.id.textView_possible);
+    	pointsText = (TextView)findViewById(R.id.textView_additionalpoints);
     	
-    	cubeButtons[0] = (ImageButton)findViewById(R.id.cubeButton1);
-		cubeButtons[1] = (ImageButton)findViewById(R.id.cubeButton2);
-		cubeButtons[2] = (ImageButton)findViewById(R.id.cubeButton3);
-		cubeButtons[3] = (ImageButton)findViewById(R.id.cubeButton4);
-		cubeButtons[4] = (ImageButton)findViewById(R.id.cubeButton5);
+    	cubeButtons[0] = (ImageButton)findViewById(R.id.button_dice1);
+		cubeButtons[1] = (ImageButton)findViewById(R.id.button_dice2);
+		cubeButtons[2] = (ImageButton)findViewById(R.id.button_dice3);
+		cubeButtons[3] = (ImageButton)findViewById(R.id.button_dice4);
+		cubeButtons[4] = (ImageButton)findViewById(R.id.button_dice5);
     	
     	for(int i=0;i<5;i++)
     	{
@@ -59,10 +59,10 @@ public class GameActivity extends Activity {
     		});
     	}
     	
-    	shakeButton = (Button)findViewById(R.id.shakeButton);
-    	saveButton = (Button)findViewById(R.id.continueButton);
+    	shakeButton = (Button)findViewById(R.id.button_rolldice);
+    	saveButton = (Button)findViewById(R.id.button_continue);
     	
-    	moveSpinner = (Spinner)findViewById(R.id.spinner1);
+    	moveSpinner = (Spinner)findViewById(R.id.spinner_combination);
     	
     	shakeButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
@@ -122,9 +122,9 @@ public class GameActivity extends Activity {
     private void updateMoveDetails()
     {
     	Player player = GameController.get().getCurrentPlayer();
-    	possibilityText.setText((player.isSelectedMovePossible() ? "yes" : "no"));
+    	possibilityText.setText((player.isSelectedMovePossible() ? "POSSIBLE" : "IMPOSSIBLE"));
     	int points = player.getPointsForSelectedMove();
-    	pointsText.setText(""+(points != -1 ? points : 0));
+    	pointsText.setText("Points: "+(points != -1 ? points : 0));
     }
     
     private void saveAndContinue()

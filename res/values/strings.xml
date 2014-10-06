@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Yahtzee</string>
-    <string name="Shake">Shake</string>
-    <string name="Possible">Possible: </string>
-    <string name="AdditionalPoints">Additional Points: </string>
-    <string name="SaveMove">Save Move &amp; Continue</string>
-    <string name="SelectMove">Select a Move:</string>
+    <string name="roll_dice">Roll Dice</string>
+    <string name="possible">Possible: </string>
+    <string name="additionalPoints">Additional Points: </string>
+    <string name="saveCombination">Enter &amp; Continue</string>
+    <string name="selectCombination">Combination:</string>
     <string name="amount_players">Players:</string>
     <string name="amount_rounds">Rounds:</string>
     <string name="start">Start</string>
+    <string name="dice_Description">A Dice</string>
 </resources>

@@ -1,30 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent">
-	<LinearLayout
-	  android:orientation="vertical"
-	  android:layout_width="match_parent"
-	  android:layout_height="match_parent">
-	    <LinearLayout android:id="@+id/linearLayout2" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingBottom="7pt">
-	        <ImageButton android:src="@drawable/cube1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cubeButton1"></ImageButton>
-	        <ImageButton android:src="@drawable/cube2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cubeButton2"></ImageButton>
-	        <ImageButton android:src="@drawable/cube3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cubeButton3"></ImageButton>
-	        <ImageButton android:src="@drawable/cube4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cubeButton4"></ImageButton>
-	        <ImageButton android:src="@drawable/cube5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cubeButton5"></ImageButton>
-	    </LinearLayout>
-	    <Button android:text="@string/Shake" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/shakeButton"></Button>
-	    <LinearLayout android:id="@+id/linearLayout5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7pt">
-	        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView4" android:text="@string/SelectMove" android:layout_marginLeft="7pt" android:textSize="7pt"></TextView>
-	    </LinearLayout>
-	    <Spinner android:layout_width="match_parent" android:id="@+id/spinner1" android:layout_height="wrap_content" android:layout_marginTop="7pt" android:layout_marginBottom="7pt"></Spinner>
-	    <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content">
-	        <TextView android:layout_width="wrap_content" android:text="@string/Possible" android:layout_height="wrap_content" android:id="@+id/textView2"></TextView>
-	        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/possibilityText"></TextView>
-	    </LinearLayout>
-	    <LinearLayout android:id="@+id/linearLayout4" android:layout_width="match_parent" android:layout_height="wrap_content">
-	        <TextView android:layout_width="wrap_content" android:text="@string/AdditionalPoints" android:layout_height="wrap_content" android:id="@+id/textView3"></TextView>
-	        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/pointsText"></TextView>
-	    </LinearLayout>
-	    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7pt" android:text="@string/SaveMove" android:id="@+id/continueButton"></Button>
-	</LinearLayout>
-</ScrollView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <RelativeLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
+        
+        <ImageButton
+            android:id="@+id/button_dice1"
+            android:src="@drawable/cube1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/button_dice2"
+            android:layout_toStartOf="@+id/button_dice2"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/dice_Description">            
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/button_dice2"
+            android:src="@drawable/cube2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/button_dice3"
+            android:layout_toStartOf="@+id/button_dice3"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/dice_Description" />
+
+        <ImageButton
+            android:id="@+id/button_dice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/dice_Description"
+            android:src="@drawable/cube3" />
+
+        <ImageButton
+            android:id="@+id/button_dice4"
+            android:src="@drawable/cube4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@+id/button_dice3"
+            android:layout_toEndOf="@+id/button_dice3"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/dice_Description" />
+
+        <ImageButton
+            android:id="@+id/button_dice5"
+            android:src="@drawable/cube5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@+id/button_dice4"
+            android:layout_toEndOf="@+id/button_dice4"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/dice_Description" />
+        
+        <Button
+            android:id="@+id/button_rolldice"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_dice1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/roll_dice" >
+            
+        </Button>
+        
+        <TextView
+            android:id="@+id/textView_combination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button_rolldice"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/selectCombination"
+            android:textAppearance="?android:attr/textAppearanceMedium">
+        </TextView>
+        
+        <Spinner
+            android:id="@+id/spinner_combination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_combination"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">            
+        </Spinner>
+        
+        <TextView
+            android:id="@+id/textView_possible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_combination"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/possible"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+            
+        </TextView>
+        
+        <TextView
+            android:id="@+id/textView_additionalpoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_possible"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/additionalPoints"
+            android:textAppearance="?android:attr/textAppearanceMedium" >
+            
+        </TextView>
+        
+        <Button
+            android:id="@+id/button_continue"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_additionalpoints"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/saveCombination">            
+        </Button>
+        
+        </RelativeLayout>
+        
+</LinearLayout>
