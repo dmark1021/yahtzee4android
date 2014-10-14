@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 public class GameActivity extends Activity {
 	
-	private TextView playerText;
 	private TextView possibilityText;
 	private TextView pointsText;
 	
@@ -40,15 +39,14 @@ public class GameActivity extends Activity {
     	super.onCreate(savedInstanceState);
     	setContentView(R.layout.game);
     	
-    	playerText = (TextView)findViewById(R.id.player_nr_header);
-    	possibilityText = (TextView)findViewById(R.id.possibilityText);
-    	pointsText = (TextView)findViewById(R.id.pointsText);
+    	possibilityText = (TextView)findViewById(R.id.textView_possible);
+    	pointsText = (TextView)findViewById(R.id.textView_additionalpoints);
     	
-    	cubeButtons[0] = (ImageButton)findViewById(R.id.cubeButton1);
-		cubeButtons[1] = (ImageButton)findViewById(R.id.cubeButton2);
-		cubeButtons[2] = (ImageButton)findViewById(R.id.cubeButton3);
-		cubeButtons[3] = (ImageButton)findViewById(R.id.cubeButton4);
-		cubeButtons[4] = (ImageButton)findViewById(R.id.cubeButton5);
+    	cubeButtons[0] = (ImageButton)findViewById(R.id.button_dice1);
+		cubeButtons[1] = (ImageButton)findViewById(R.id.button_dice2);
+		cubeButtons[2] = (ImageButton)findViewById(R.id.button_dice3);
+		cubeButtons[3] = (ImageButton)findViewById(R.id.button_dice4);
+		cubeButtons[4] = (ImageButton)findViewById(R.id.button_dice5);
     	
     	for(int i=0;i<5;i++)
     	{
@@ -61,16 +59,16 @@ public class GameActivity extends Activity {
     		});
     	}
     	
-    	shakeButton = (Button)findViewById(R.id.shakeButton);
-    	saveButton = (Button)findViewById(R.id.continueButton);
+    	shakeButton = (Button)findViewById(R.id.button_rolldice);
+    	saveButton = (Button)findViewById(R.id.button_continue);
     	
-    	moveSpinner = (Spinner)findViewById(R.id.spinner1);
+    	moveSpinner = (Spinner)findViewById(R.id.spinner_combination);
     	
     	shakeButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View arg0) {
 				if(!GameController.get().getCurrentPlayer().shake())
 				{
-					MessageService.showMessage(GameActivity.this, "You can only shake 2 times. (2 because first time is used to generate the random cubes.)");
+					MessageService.showMessage(GameActivity.this, "Impossible", "You can only shake 2 times. (2 because first time is used to generate the random cubes.)");
 				}
 				updateCubes();
 			}
@@ -88,7 +86,7 @@ public class GameActivity extends Activity {
     private void update()
     {
     	Player player = GameController.get().getCurrentPlayer();
-    	playerText.setText(player.getName());
+    	setTitle(player.getName());
     	
     	
     	String[] moves = player.getMoves().toArray(new String[]{});
@@ -124,9 +122,9 @@ public class GameActivity extends Activity {
     private void updateMoveDetails()
     {
     	Player player = GameController.get().getCurrentPlayer();
-    	possibilityText.setText((player.isSelectedMovePossible() ? "yes" : "no"));
+    	possibilityText.setText((player.isSelectedMovePossible() ? "POSSIBLE" : "IMPOSSIBLE"));
     	int points = player.getPointsForSelectedMove();
-    	pointsText.setText(""+(points != -1 ? points : 0));
+    	pointsText.setText("Points: "+(points != -1 ? points : 0));
     }
     
     private void saveAndContinue()
@@ -136,7 +134,7 @@ public class GameActivity extends Activity {
     	
     	//validate input
     	if (!player.isSelectedMovePossible()) {
-    		MessageService.showMessage(GameActivity.this, "The selected move isn't possible!");
+    		MessageService.showMessage(GameActivity.this, "Impossible", "The selected move isn't possible!");
     		return;
     	}
     	
@@ -159,7 +157,7 @@ public class GameActivity extends Activity {
     		builder.show();
     	} else {
     		if (!player.anyMovePossible()) {
-    			MessageService.showMessage(GameActivity.this, "No move possible. Continuing with next user or finishing game now if this was the last round.");
+    			MessageService.showMessage(GameActivity.this, "No move possible", "Continuing with next user or finishing game now if this was the last round.");
     		} else {
     			player.doSelectedMove();
     		}
@@ -169,7 +167,7 @@ public class GameActivity extends Activity {
     		//update
     		update();
     	} else {
-    		MessageService.showMessage(GameActivity.this, "Game finished! "+GameController.get().winner().getName()+" won the game.", new MethodPointer() {
+    		MessageService.showMessage(GameActivity.this, "Game finished!", GameController.get().winner().getName()+" won the game.", new MethodPointer() {
     			@Override
     			public void execute(){
     				closeActivity();
